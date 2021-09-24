@@ -1,0 +1,15 @@
+{
+    "name": "kleber/my-mvc",
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "KleberPF",
+            "email": "43550602+KleberPF@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
