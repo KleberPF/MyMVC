@@ -8,11 +8,21 @@ class SiteController
 {
     public static function home()
     {
-        View::renderView("main", "home");
+        $params = [
+            "title" => "Home Page",
+            "styles" => ["home"],
+            "scripts" => ["home"],
+        ];
+        View::renderView("main", "home", $params);
     }
 
     public static function contact()
     {
-        View::renderView("main", "contact");
+        $params = [
+            "title" => "Contact Page",
+            "styles" => [],
+            "scripts" => [],
+        ];
+        View::renderView("main", "contact", $params);
     }
 }
