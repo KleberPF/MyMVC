@@ -6,11 +6,13 @@ class Application
 {
     public static string $ROOT_DIR;
     public Router $router;
+    public Database $database;
 
     public function __construct(string $rootDir)
     {
         Application::$ROOT_DIR = $rootDir;
         $this->router = new Router();
+        $this->database = new Database();
     }
 
     public function run(): void
@@ -19,7 +21,6 @@ class Application
             echo $this->router->resolve();
         } catch (\Exception $e) {
             Response::setStatusCode($e->getCode());
-            //echo View::renderView("main", "404");
             View::renderView("main", "404");
             die();
         }
