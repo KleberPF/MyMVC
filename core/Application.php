@@ -6,13 +6,13 @@ class Application
 {
     public static string $ROOT_DIR;
     public Router $router;
-    public Database $database;
+    public Session $session;
 
     public function __construct(string $rootDir)
     {
         Application::$ROOT_DIR = $rootDir;
         $this->router = new Router();
-        $this->database = new Database();
+        $this->session = new Session();
     }
 
     public function run(): void
@@ -20,8 +20,10 @@ class Application
         try {
             echo $this->router->resolve();
         } catch (\Exception $e) {
-            Response::setStatusCode($e->getCode());
-            View::renderView("main", "404");
+            $code = $e->getCode();
+            Response::setStatusCode($code);
+            // hack?
+            View::renderView("main", "$code");
             die();
         }
     }

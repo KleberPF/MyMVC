@@ -1,0 +1,1 @@
+<h1>Profile of <?php echo $_SESSION["username"] ?></h1>
